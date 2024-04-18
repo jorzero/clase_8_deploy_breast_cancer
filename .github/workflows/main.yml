@@ -40,8 +40,8 @@ jobs:
             username: ${{ secrets.EC2_USERNAME }}
             key: ${{ secrets.EC2_PRIVATE_KEY}}
             script: |
-              docker login
-              if docker ps --all | grep -q breast-cancer; then
+              docker login -u '${{secrets.DOCKER_USERNAME}}' -p '${{secrets.DOCKER_PASSWORD}}'
+              if docker ps --all | grep breast-cancer; then
                 docker stop breast-cancer
                 docker rm breast-cancer
               fi

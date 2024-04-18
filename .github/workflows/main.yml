@@ -38,7 +38,7 @@ jobs:
         with:
             host: ${{ secrets.EC2_HOST }}
             username: ${{ secrets.EC2_USERNAME }}
-            key: ${{ secrets.SSH_PRIVATE_KEY}}
+            key: ${{ secrets.EC2_PRIVATE_KEY}}
             script: |
               docker login
               if docker ps --all | grep -q breast-cancer; then
